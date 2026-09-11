@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 
 //Alterei o arquivo para poder salvar em .CSV
+// Utilizei o Switch para poder fazer a seleção das opções mais fluida e limpa no codigo;
 
 class Program
 {
