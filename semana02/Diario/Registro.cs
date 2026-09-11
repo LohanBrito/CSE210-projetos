@@ -18,6 +18,6 @@ public class Registro
 
     public void Exibir()
     {
-        Console.WriteLine($"{_data.ToShortDateString()} - {_textoPergunta}? {_textoResposta}");
+        Console.WriteLine($"{_data.ToShortDateString()} - {_textoPergunta} {_textoResposta}");
     }
 }

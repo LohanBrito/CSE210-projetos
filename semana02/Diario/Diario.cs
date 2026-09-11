@@ -27,15 +27,31 @@ public class Diario
         }
     }
 
+    // Alteração para poder salvar o arquivo em .CSV;
     public void SalvarNovoArquivo(String arquivo)
     {
         using (StreamWriter writer = new StreamWriter(arquivo, true))
         {
             foreach (var registro in _registros)
             {
-                writer.WriteLine($"{registro._data};{registro._textoPergunta};{registro._textoResposta}");
+                string data = registro._data.ToString("yyy-MM-dd");
+                string pergunta = EscapeCsv(registro._textoPergunta);
+                string resposta = EscapeCsv(registro._textoResposta);
+                
+                writer.WriteLine($"{data},{pergunta},{resposta}");
             }
         }
+    }
+
+    // Função auxiliar para tratar vírgula e aspas;
+    private string EscapeCsv(string campo)
+    {
+        if (campo.Contains(",") || campo.Contains("\""))
+        {
+            campo = campo.Replace("\"", "\"\""); 
+            campo = $"\"{campo}\""; 
+        }
+        return campo;
     }
 
     public void CarregarDoArquivo(string arquivo)
@@ -46,13 +62,13 @@ public class Diario
             string[] linhas = File.ReadAllLines(arquivo);
             foreach (string linha in linhas)
             {
-                string[] partes = linha.Split(";");
+                string[] partes = linha.Split(",");
                 if (partes.Length == 3)
                 {
                     Registro registro = new Registro(new GeradorDePerguntas());
                     registro._data = DateTime.Parse(partes[0]);
-                    registro._textoPergunta = partes[1];
-                    registro._textoResposta = partes[2];
+                    registro._textoPergunta = partes[1].Trim('"');
+                    registro._textoResposta = partes[2].Trim('"');
                     _registros.Add(registro);
                 }
             }

@@ -3,6 +3,9 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using System.Collections.Generic;
 
+
+//Alterei o arquivo para poder salvar em .CSV
+
 class Program
 {
     static void Main(string[] args)
@@ -21,7 +24,7 @@ class Program
             Console.WriteLine("3. Carregar");
             Console.WriteLine("4. Salvar");
             Console.WriteLine("5. Sair");
-            Console.WriteLine("O que você gostaria de fazer?");
+            Console.Write("O que você gostaria de fazer?");
             
             string opcao = Console.ReadLine();
 
