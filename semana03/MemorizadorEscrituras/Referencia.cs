@@ -12,9 +12,10 @@ public class Referencia
         _livro = livro;
         _capitulo = capitulo;
         _versiculo = versiculo;
+        _ultimoVersiculo = versiculo;
     }
 
-    public Referencia2(string livro, int capitulo, int primeiroVersiculo, int ultimoVersiculo)
+    public Referencia(string livro, int capitulo, int primeiroVersiculo, int ultimoVersiculo)
     {
         _livro = livro;
         _capitulo = capitulo;

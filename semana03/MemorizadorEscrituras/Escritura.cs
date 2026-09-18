@@ -30,6 +30,8 @@ public class Escritura
 
         List<Palavra> palavrasVisiveis = _palavra.Where(p => !p.EstaOculta()).ToList();
 
+        int quantidadeAOcultar = Math.Min(numeroParaOcultar, palavrasVisiveis.Count);
+
         for (int i = 0; i < quantidadeAOcultar; i++)
         {
             int indiceAleatorio = random.Next(palavrasVisiveis.Count);
@@ -40,31 +42,30 @@ public class Escritura
         }
     }
 
-        public string ObterTexto()
+    public string ObterTexto()
+    {
+        List<string> textosPalavras = new List<string>();
+
+        foreach (Palavra palavra in _palavra)
         {
-            List<string> textosPalavras = new List<string>();
-
-            foreach (Palavra palavra in _palavra)
-            {
-                textosPalavras.Add(palavra.ObterTexto());
-            }
-
-            string textoCompleto = string.Join(" ", textosPalavras);
-
-            return $"{_referencia.ObterTexto()} - {textoCompleto}";
+            textosPalavras.Add(palavra.ObterTexto());
         }
 
-        public bool EstaCompletamenteOculta()
-        {
-            foreach (Palavra palavra in _palavra)
-            {
-                if(!palavra.EstaOculta())
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        string textoCompleto = string.Join(" ", textosPalavras);
 
+        return $"{_referencia.ObterTexto()}\n{textoCompleto}";
     }
+
+    public bool EstaCompletamenteOculta()
+    {
+        foreach (Palavra palavra in _palavra)
+        {
+            if(!palavra.EstaOculta())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
