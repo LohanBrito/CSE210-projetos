@@ -12,7 +12,7 @@ public class Referencia
         _livro = livro;
         _capitulo = capitulo;
         _versiculo = versiculo;
-        _ultimoVersiculo = versiculo;
+        _ultimoVersiculo = 0;
     }
 
     public Referencia(string livro, int capitulo, int primeiroVersiculo, int ultimoVersiculo)
