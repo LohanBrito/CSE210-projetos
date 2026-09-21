@@ -31,7 +31,7 @@ public class Palavra
     {
         if (_estaOculta)
         {
-            return new string('_', _texto.Length);
+            return new string('_', _texto.Length);// Mantém o número exato de letras como '_'
         }
         
         return _texto;
