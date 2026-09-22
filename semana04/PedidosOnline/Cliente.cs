@@ -19,8 +19,15 @@ public class Cliente
         return _endereco.moraNosEUA();
     }
 
+    public string ObterNome()
+    {
+        return _nome;
+    }
 
-
+    public Endereco ObterEndereco()
+    {
+        return _endereco;
+    }
 
 
 }

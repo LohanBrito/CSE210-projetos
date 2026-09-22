@@ -23,4 +23,14 @@ public class Produto
         return _preco * _quantidade;
     }
 
+    public string ObterNome()
+    {
+        return _nomeProduto;
+    }
+
+    public int ObterID()
+    {
+        return _ID;
+    }
+
 }
