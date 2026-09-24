@@ -23,7 +23,7 @@ public class Pedido
             totalProdutos += produto.CustoTotal();     
        } 
 
-       double frete = _cliente.moraNosEUA() ? 5.0 : 35.0;
+       double frete = _cliente.MoraNosEUA() ? 5.0 : 35.0;
 
        return totalProdutos + frete;
     }

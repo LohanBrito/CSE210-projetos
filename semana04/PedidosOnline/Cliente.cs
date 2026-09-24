@@ -14,9 +14,9 @@ public class Cliente
         _endereco = endereco;
     }
 
-    public bool moraNosEUA()
+    public bool MoraNosEUA()
     {
-        return _endereco.moraNosEUA();
+        return _endereco.MoraNosEUA();
     }
 
     public string ObterNome()

@@ -18,7 +18,7 @@ public class Endereco
         _pais = pais;
     }
 
-    public bool moraNosEUA()
+    public bool MoraNosEUA()
     {
         return _pais ==  "EUA";
         
