@@ -44,7 +44,7 @@ public class Pedido
     {
         string etiqueta = "----------Etiqueta De Envio----------\n";
         etiqueta += $"Cliente: {_cliente.ObterNome()}\n";
-        etiqueta += $"Endereço: {_cliente.ObterEndereco()}";
+        etiqueta += $"Endereço: {_cliente.ObterEndereco().ObterEnderecoCompleto()}";
 
         return etiqueta;
     } 
