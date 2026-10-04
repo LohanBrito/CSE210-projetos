@@ -1,5 +1,7 @@
 using System;
 
+// controle de não-repetição das perguntas.
+
 class Program
 {
     static void Main(string[] args)
