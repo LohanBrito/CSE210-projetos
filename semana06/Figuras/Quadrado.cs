@@ -1,14 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 
-
-public class Quadrado
+public class Quadrado : Figura
 {
-    protect double _lado;
+    private double _lado;
 
-    public double ObterArea()
+    public Quadrado(string cor, double lado) 
+    : base(cor)
     {
-       return _lado **2; 
+        _lado = lado;
     }
 
+
+    public override double ObterArea()
+    {
+       return _lado * _lado; 
+    }
 
 }
