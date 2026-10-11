@@ -1,0 +1,5 @@
+110
+MetaSimples|Estudar Inglês |Estudar Inglês todos os dias|10|False
+MetaEterna|Ir a Igreja|Ir a igreja todos os domingos|100
+MetaDeListaDeTarefas|Estudar sobre finanças|Estudar sobre finanças pelo menos 3x na semana |10|4|100|1
+MetaSimples|Fazer projeto Semana 06|Terminar projeto da faculdade da semana 06|100|True

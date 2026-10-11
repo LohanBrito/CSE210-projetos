@@ -35,7 +35,7 @@ public class MetaSimples : Meta
 
     public override string ObterRepresentacaoEmTexto()
     {
-        return $"MetaSimples | {_nome} | {_descricao} | {_ponto} | {_estaConcluida}";
+        return $"MetaSimples|{_nome}|{_descricao}|{_ponto}|{_estaConcluida}";
     }
 
     public override string ObterDetalhesEmTexto()

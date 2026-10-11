@@ -23,7 +23,7 @@ public class MetaEterna : Meta
 
     public override string ObterRepresentacaoEmTexto()
     {
-        return $"MetaEterna | {_nome} | {_descricao} | {_ponto}";
+        return $"MetaEterna|{_nome}|{_descricao}|{_ponto}";
     }
 
     public override string ObterDetalhesEmTexto()

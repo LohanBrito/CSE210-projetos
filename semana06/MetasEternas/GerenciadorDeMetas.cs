@@ -33,8 +33,9 @@ public class GerenciadorDeMetas
             Console.WriteLine("3. Salvar Metas");
             Console.WriteLine("4. Carregar Metas");
             Console.WriteLine("5. Registrar Evento");
-            Console.WriteLine("6. Sair");
-            Console.WriteLine("\nEscolha uma opção: ");
+            Console.WriteLine("6. Apagar Meta");
+            Console.WriteLine("7. Sair");
+            Console.Write("\nEscolha uma opção: ");
 
             if (int.TryParse(Console.ReadLine(), out opcao))
             {
@@ -56,8 +57,19 @@ public class GerenciadorDeMetas
                         RegistrarEvento();
                         break;
                     case 6:
-                        Console.WriteLine("\nSaindo...");
-                        Console.WriteLine("Até Logo");
+                        ApagarMeta();
+                        break;
+                    case 7:
+                        Console.WriteLine("\nA guardar o fluxo temporal e a sair...");
+    
+                        char[] spinner = new char[] { '|', '/', '-', '\\' };
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Console.Write($"\r[ENCERRANDO] {spinner[i % spinner.Length]}");
+                            System.Threading.Thread.Sleep(80);
+                        }
+    
+                        Console.WriteLine("\n\nAté logo!");
                         break;
                     default:
                         Console.WriteLine("\nEntrada inválida. Pressione qualquer tecla para continuar.");
@@ -70,7 +82,7 @@ public class GerenciadorDeMetas
                 Console.WriteLine("\nEntrada inválida. Pressione qualquer tecla para continuar.");
                 Console.ReadKey();
             }
-        } while (opcao != 6);
+        } while (opcao != 7);
     }
 
     public void ExibirInfoJogador()
@@ -247,4 +259,45 @@ public class GerenciadorDeMetas
         }
         Console.ReadKey();
     }
+
+    public void ApagarMeta()
+    {
+        if (_metas.Count == 0)
+        {
+            Console.WriteLine("\nNão existem metas cadastradas para apagar.");
+            Console.WriteLine("Pressione qualquer tecla para voltar ao menu.");
+            Console.ReadKey();
+            return;
+        }
+
+        Console.Clear();
+
+        Console.WriteLine("--- Apagar Meta ---");
+
+        for (int i = 0; i < _metas.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {_metas[i].ObterNome()}");
+        }
+
+        Console.Write("\nDigite o número da meta que deseja apagar: ");
+        if (int.TryParse(Console.ReadLine(), out int indice) && indice >= 1 && indice <= _metas.Count)
+        {
+            string nomeRemovido = _metas[indice - 1].ObterNome();
+            _metas.RemoveAt(indice - 1);
+            char[] spinner = new char[] { '|', '/', '-', '\\' };
+            for (int i = 0; i < 20; i++)
+            {
+                Console.Write($"\r[APAGANDO] {spinner[i % spinner.Length]}");
+                System.Threading.Thread.Sleep(80);
+            }
+            Console.WriteLine($"\nA meta '{nomeRemovido}' foi apagada com sucesso!");
+        }
+        else
+        {
+            Console.WriteLine("\nOpção inválida.");
+        }
+
+        Console.WriteLine("Pressione qualquer tecla para voltar ao menu.");
+        Console.ReadLine();
+        }
 }
