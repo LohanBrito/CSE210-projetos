@@ -8,7 +8,7 @@ class Program
 
         Corrida corrida = new Corrida("Corrida", 30, new DateTime(2022, 11, 3), 4.8);
         Ciclismo ciclismo = new Ciclismo("Ciclismo", 30, new DateTime(2022, 11, 3), 9.7);
-        Natacao natacao = new Natacao("Natação", 30, new DateTime(2022, 11, 3), 20); // 20 voltas = 1 km
+        Natacao natacao = new Natacao("Natação", 30, new DateTime(2022, 11, 3), 20); 
 
         atividades.Add(corrida);
         atividades.Add(ciclismo);
