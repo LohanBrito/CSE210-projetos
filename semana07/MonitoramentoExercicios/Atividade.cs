@@ -9,7 +9,7 @@ public class Atividade
     protected int _tempo;
     protected DateTime _data;
 
-    public Ativide(string nomeAtividade, int tempo, DateTime data)
+    public Atividade(string nomeAtividade, int tempo, DateTime data)
     {
         _nomeAtividade = nomeAtividade;
         _tempo = tempo;
@@ -26,9 +26,9 @@ public class Atividade
     public virtual double ObterVelocidade() => 0.0;
     public virtual double ObterRitmo() => 0.0;
     
-    public abstract string ObterResumo()
+    public virtual string ObterResumo()
     {
-        return $"{data} {nomeAtividade} ({tempo}): Distância {distancia} Km, Velocidade: {velocidade} Km/h, Ritmo: {ritmo} min por Km";
-    }
+        return $"{_data:dd MMM yyyy} {_nomeAtividade} ({_tempo} min): Distância {ObterDistancia():F1} km, Velocidade: {ObterVelocidade():F1} km/h, Ritmo: {ObterRitmo():F2} min por km";
+    } 
 
 }
